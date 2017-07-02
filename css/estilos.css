@@ -1,0 +1,178 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  font-family: "Helvetica";
+}
+
+header {
+  display: flex;
+
+  height: 50px;
+
+  color: #fff;
+  background: #303F9F;
+
+  justify-content: flex-end;
+}
+
+header nav li {
+  cursor: pointer;
+}
+
+/*submenu*/
+.menu ul {
+  display: flex;
+
+  list-style: none;
+
+  background: #303F9F;
+}
+
+.menu ul ul {
+  display: none;
+}
+
+.menu a {
+  display: block;
+
+  padding: 15px 20px;
+
+  text-decoration: none;
+
+  color: #fff;
+
+  font-size: 15px;
+}
+
+.menu a:hover {
+  background: rgba(68, 138, 255, 0.8);
+}
+
+.menu a span{
+  margin-left: 8px;
+}
+
+.menu ul li:hover ul{
+  position: absolute;
+
+  display: block;
+}
+
+.logout{
+  display: none;
+}
+
+h1 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #757575;
+  font-size: 50px;
+}
+
+.clock {
+  height: 50px;
+  margin-bottom: 40px;
+  padding: 10px;
+  text-align: center;
+  font-size: 50px;
+  color: #3F51B5;
+}
+
+.timer {
+  color: #3F51B5;
+}
+
+#input-search {
+  display: none;
+  clear: both;
+}
+
+.div-buscar {
+  text-align: center;
+
+  color: #3F51B5;
+
+  font-size: 28px;
+}
+
+.cajatexto {
+  width: 450px;
+  height: 55px;
+
+  text-align: center;
+
+  border-width: 2px;
+  border-color: #3F51B5;
+  border-radius: 8px;
+
+  font-size: 25px;
+}
+
+.icon-magnifying-glass:hover{
+  text-shadow: 1px 2px 5px #448AFF;
+}
+
+/*.datos {
+  //display:block;
+  text-align:center;
+  font-size: 30px;
+  margin-top: 80px;
+  margin-left: 100px;
+}
+
+.nombre {
+  //width: 500px;
+  text-align:center;
+  //position: relative;
+}
+
+.horas {
+  //width: 500px;
+  text-align:center;
+  //position: relative;
+  margin-top: 20px;
+}
+
+div div label {
+  color: #757575;
+}
+
+#name {
+  background: #3F51B5;
+  border-radius: 8px;
+  color: #fff;
+  padding: 6px 5px;
+}
+
+#hours {
+  background: #3F51B5;
+  border-radius: 8px;
+  color: #fff;
+  padding: 6px 5px;
+  margin-left: 30px;
+}
+
+#nombre-palomita {
+  color: green;
+}
+
+#nombre-cruz {
+  color: red;
+}
+
+#horas-palomita {
+  color: green;
+}
+
+#horas-cruz{
+  color: red;
+}*/
+
+.result {
+  font-size: 25px;
+  text-align: center;
+  margin-top: 50px;
+}

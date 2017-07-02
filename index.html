@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>EDUCON</title>
+  <link rel="stylesheet" href="fonts/style.css">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <header>
+    <nav class="menu">
+      <ul>
+        <li class="timer"><a href="http://localhost:8888/sistemas/educon/">Timer <span class="icon-clock"></span></a></li>
+        <li><a href="http://148.228.227.155:8085/Reg_magno/php/preregistro.php">Registro <span class="icon-pencil"></span></a></li>
+
+        <li><a href="#">Sesión<span class="icon-user"></span></a>
+          <ul>
+            <li><a href="#">Log In<span class="icon-login"></span></a></li>
+            <li class="logout"><a href="#">Log Out<span class="icon-log-out"></span></a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </nav>
+  </header>
+
+  <h1>EDUCON 2017 <span class="icon-graduation-cap"></span></h1>
+
+      <div class="clock">
+        <span id="timer"></span>
+      </div>
+
+      <div class="div-buscar">
+        <input type="text" class="cajatexto" id="cajatexto" placeholder="ID: 201034125" maxlength="10" autofocus>
+        <input type="submit" id="input-search" onclick="lupaClick();"><label for="input-search" class="icon-magnifying-glass"></label>
+      </div>
+
+      <!-- <div class="datos">
+        <div class="nombre">
+          <label for="name">Nombre:</label>
+          <span id="name">David Guillermo López Vázquez</span><span class="icon-check" id="nombre-palomita"></span><span class="icon-cross" id="nombre-cruz"></span>
+        </div>
+        <div class="horas">
+          <label for="hours">Total Hrs:</label>
+          <span id="hours">10hrs 5mins</span><span class="icon-check" id="horas-palomita"></span><span class="icon-cross" id="horas-cruz"></span>
+        </div>
+      </div> -->
+      <div class="result">
+          <span id="result"></span>
+      </div>
+
+  <script src="js/jquery.js"></script>
+</body>
+</html>
+
+<script type="text/javascript">
+
+  $(document).ready(function(){
+    $("#cajatexto").focus();
+    $("#cajatexto").keyup(function(event){
+      if(event.keyCode == 13){
+        document.getElementById("input-search").click();
+      }
+    });
+  });
+
+
+  function lupaClick(){
+    var matricula = $('#cajatexto').val();
+    $('#cajatexto').val('');
+    //alert(matricula);
+
+    if(matricula != '')
+    {
+      $.ajax({
+        url:"insertar.php",
+        method:"post",
+        data:{registro:matricula},
+        dataType:"text",
+        success:function(data)
+        {
+          $('#cajatexto').value="";
+          $('#result').html(data);
+        }
+      });
+    }
+    else
+    {
+      // $('#result').html(div);
+    }
+  }
+  // document.getElementById("cajatexto")
+  // .addEventListener("keyup", function(event) {
+  //   event.preventDefault();
+  //   if (event.keyCode == 13) {
+  //     // alert('Form has been submitted');
+  //
+  //       document.getElementById("input-search").click();
+  //   }
+  // });
+
+  setInterval(function() {
+    var currentTime = new Date ( );
+    var currentHours = currentTime.getHours ( );
+    var currentMinutes = currentTime.getMinutes ( );
+    var currentSeconds = currentTime.getSeconds ( );
+    currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+    currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+    var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
+    currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
+    currentHours = ( currentHours == 0 ) ? 12 : currentHours;
+    var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
+    document.getElementById("timer").innerHTML = currentTimeString;
+  }, 1000);
+
+
+</script>
